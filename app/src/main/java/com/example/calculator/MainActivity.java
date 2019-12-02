@@ -188,12 +188,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.log:
                 double result9 = Math.log(Double.parseDouble(str));
-                String r9 = String.valueOf(result9);
+                String r9 = "log"+Double.parseDouble(str)+"="+String.valueOf(result9);
                 input.setText(r9);
                 break;
             case R.id.delete:
                if(str.length()!=0){
-                   str=str.substring(0,str.length()-1);
+                   str=str.substring(0,str.length()-1);//去除最后一位字符
                    input.setText(str);
                }
                break;
@@ -208,35 +208,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int n = Integer.parseInt(input.getText().toString(),2);//将String字符类型转换为Integer整型数据
                 String a=Integer.toOctalString(n);
                 String b=Integer.toHexString(n);
-                str="八进制:"+a+";十进制:"+n+";十六进制:"+b;
+                str="二进制数"+Double.parseDouble(str)+"的"+"八进制为:"+a+";十进制:"+n+";十六进制:"+b;
                 input.setText(str);//返回int变量的二进制表示的字符串
                 break;
             case R.id.八进制:
                 int n1 = Integer.parseInt(input.getText().toString(),8);//将String字符类型转换为Integer整型数据
                 String a1=Integer.toBinaryString(n1);
                 String b1=Integer.toHexString(n1);
-                str="二进制:"+a1+";十进制:"+n1+";十六进制:"+b1;
+                str="八进制数"+Double.parseDouble(str)+"的"+"二进制:"+a1+";十进制:"+n1+";十六进制:"+b1;
                 input.setText(str);//返回int变量的ba进制表示的字符串
                 break;
             case R.id.十六进制:
                 int n2 = Integer.parseInt(input.getText().toString(),16);//将String字符类型转换为Integer整型数据
                 String a2=Integer.toBinaryString(n2);
                 String b2=Integer.toOctalString(n2);
-                str="二进制:"+a2+";八进制:"+b2+";十进制:"+n2;
-                input.setText(Integer.toHexString(n2));//返回int变量的shiliu进制表示的字符串
+                str="十六进制数"+Double.parseDouble(str)+"的"+"二进制:"+a2+";八进制:"+b2+";十进制:"+n2;
+                input.setText(str);//返回int变量的shiliu进制表示的字符串
                 break;
             case R.id.十进制:
                 int n3 =Integer.parseInt(input.getText().toString(),10);
                 String a3=Integer.toBinaryString(n3);
                 String b3=Integer.toHexString(n3);
                 String c=Integer.toOctalString(n3);
-                str="二进制:"+a3+";八进制:"+c+";十六进制:"+b3;
+                str="十进制数"+Double.parseDouble(str)+"的"+"二进制:"+a3+";八进制:"+c+";十六进制:"+b3;
                 input.setText(str);
                 break;
             case R.id.help:
                /* String tem="除了加减乘除以外的运算均要先输入数字";
                 input.setText(tem);*/
-               Toast.makeText(MainActivity.this, "除了加减乘除以外的运算均要先输入数字，e^x,x^(1/2),x^2,sin,cos,tan,log等运算需要先按数字，后按运算符号", Toast.LENGTH_LONG).show();
+               Toast.makeText(MainActivity.this, "这是帮助", Toast.LENGTH_LONG).show();
                 break;
             case R.id.exit:
                 System.exit(0);
@@ -291,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             clear_flag = true;
             double result = 0.0;
             String s1 = exp.substring(0, exp.indexOf(" ")); //获取运算符前面的字符串，获得第一个空格前的子字符串
-            String op = exp.substring(exp.indexOf(" ") + 1, exp.indexOf(" ") + 2);//获得第一个空格后面的第一个字符
+            String op = exp.substring(exp.indexOf(" ") + 1, exp.indexOf(" ") + 2);//得到算法符号
             String s2 = exp.substring(exp.indexOf(" ") + 3);//获取运算符后面的字符串，获得第一个空格后面的第三个字符开始到末尾的字符
             if (!s1.equals(" ") && !s2.equals(" ")) {
                 double d1 = Double.parseDouble(s1);

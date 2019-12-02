@@ -13,8 +13,6 @@
         android:hint="@null"
         android:inputType="none"
         />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="82dp"
